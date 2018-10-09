@@ -1,5 +1,6 @@
-import sum  from './account';
+import Account from './account';
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+test('initial account balance 0', () => {
+    let account = new Account()
+    expect(account.balance).toBe(0);
 });

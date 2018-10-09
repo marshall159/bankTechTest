@@ -1,5 +1,7 @@
-function sum(a, b) {
-    return a + b;
+class Account {
+    constructor(balance = 0) {
+        this.balance = balance;
+    }
 }
 
-export default sum;
+export default Account;
