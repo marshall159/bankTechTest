@@ -1,6 +1,9 @@
 class Account {
     constructor(balance = 0) {
-        this.balance = balance;
+        this._balance = balance;
+    }
+    get balance() {
+        return this._balance;
     }
 }
 
