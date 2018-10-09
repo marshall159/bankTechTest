@@ -59,18 +59,17 @@ describe('#date', () => {
         expect(account.date()).toBe("31/10/2018");
     });
 
-    // test('new bank account', () => {
-    //     let date = new Date()
-    //     date.toLocaleDateString()
-    //     expect(account.statement).toEqual(
-    //         [{
-    //             date: , 
-    //             credit: '', 
-    //             debit: '', 
-    //             balance: ''
-    //         }]
-    //     );
-    // });
+    // date credit debit balance
+    test('new bank account', () => {
+        expect(account.statement).toEqual(
+            [{
+                date: "31/10/2018", 
+                credit: '', 
+                debit: '', 
+                balance: 0
+            }]
+        );
+    });
 });
 
-// date credit debit balance
+
