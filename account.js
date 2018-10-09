@@ -5,6 +5,14 @@ class Account {
     get balance() {
         return this._balance;
     }
+
+    deposit(amount) {
+        if (amount < 0) {
+            throw new Error('Deposit must be higher than 0');
+        }
+        
+        this._balance += amount;
+    }
 }
 
 export default Account;
