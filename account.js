@@ -15,6 +15,10 @@ class Account {
     }
 
     withdraw(amount) {
+        if (amount > this.balance) {
+            throw new Error('Cannot withdraw more than account balance');
+        }
+
         this._balance -= amount;
     }
 }

@@ -33,3 +33,10 @@ test('make a withdrawal', () => {
     account.withdraw(40);
     expect(account.balance).toBe(10);
 });
+
+test('withdraw more than account balance throws an error', () => {
+    account.deposit(50);
+    expect(function() {
+        account.withdraw(60)
+    }).toThrow();
+});
