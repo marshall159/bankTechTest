@@ -10,7 +10,6 @@ class Account {
         if (amount < 0) {
             throw new Error('Deposit must be higher than 0');
         }
-        
         this._balance += amount;
     }
 
@@ -18,8 +17,12 @@ class Account {
         if (amount > this.balance) {
             throw new Error('Cannot withdraw more than account balance');
         }
-
         this._balance -= amount;
+    }
+
+    date() {
+        let d = new Date();
+        return d.toLocaleDateString();
     }
 }
 

@@ -17,7 +17,7 @@ describe('initialise bank account', () => {
     });
 });
 
-describe('deposit', () => {
+describe('#deposit', () => {
     test('make a deposit', () => {
         account.deposit(50)
         expect(account.balance).toBe(50);
@@ -30,7 +30,7 @@ describe('deposit', () => {
     });
 });
 
-describe('wihdraw', () => {
+describe('#wihdraw', () => {
     test('make a withdrawal', () => {
         account.deposit(50);
         account.withdraw(40);
@@ -45,3 +45,32 @@ describe('wihdraw', () => {
     });
 });
 
+describe('#date', () => {
+    beforeAll(() => {
+        Date.prototype.toLocaleDateString = jest.fn();
+    });
+    beforeEach(() => {
+        Date.prototype.toLocaleDateString
+            .mockReturnValueOnce("31/10/2018")
+            .mockReturnValueOnce("05/11/2018")
+            .mockReturnValueOnce("10/12/2018")
+    });
+    test('new date string', () => {
+        expect(account.date()).toBe("31/10/2018");
+    });
+
+    // test('new bank account', () => {
+    //     let date = new Date()
+    //     date.toLocaleDateString()
+    //     expect(account.statement).toEqual(
+    //         [{
+    //             date: , 
+    //             credit: '', 
+    //             debit: '', 
+    //             balance: ''
+    //         }]
+    //     );
+    // });
+});
+
+// date credit debit balance
