@@ -13,6 +13,10 @@ class Account {
         
         this._balance += amount;
     }
+
+    withdraw(amount) {
+        this._balance -= amount;
+    }
 }
 
 export default Account;

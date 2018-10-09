@@ -27,3 +27,9 @@ test('make a deposit with a negative amount', () => {
         account.deposit(-50)
     }).toThrow();
 });
+
+test('make a withdrawal', () => {
+    account.deposit(50);
+    account.withdraw(40);
+    expect(account.balance).toBe(10);
+});
