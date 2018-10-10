@@ -1,6 +1,8 @@
 class Account {
     constructor(balance = 0) {
         this._balance = balance;
+        this._transactions = [];
+        this.transaction();
     }
     get balance() {
         return this._balance;
@@ -20,9 +22,18 @@ class Account {
         this._balance -= amount;
     }
 
-    date() {
-        let d = new Date();
-        return d.toLocaleDateString();
+    transaction(credit = '', debit = '') {
+        let individualTransaction = {
+            date: new Date().toLocaleDateString(),
+            credit,
+            debit,
+            balance: this.balance 
+        }
+        this._transactions.push(individualTransaction);
+    }
+    
+    get transactions() {
+        return this._transactions;
     }
 }
 

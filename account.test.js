@@ -45,25 +45,16 @@ describe('#wihdraw', () => {
     });
 });
 
-describe('#date', () => {
+describe('#transactions', () => {
     beforeAll(() => {
         Date.prototype.toLocaleDateString = jest.fn();
-    });
-    beforeEach(() => {
         Date.prototype.toLocaleDateString
-            .mockReturnValueOnce("31/10/2018")
-            .mockReturnValueOnce("05/11/2018")
-            .mockReturnValueOnce("10/12/2018")
-    });
-    test('new date string', () => {
-        expect(account.date()).toBe("31/10/2018");
-    });
-
-    // date credit debit balance
-    test('new bank account', () => {
-        expect(account.statement).toEqual(
+            .mockReturnValue("31/10/2018");
+    })
+    test('new bank account transactions', () => {
+        expect(account.transactions).toEqual(
             [{
-                date: "31/10/2018", 
+                date: '31/10/2018', 
                 credit: '', 
                 debit: '', 
                 balance: 0
