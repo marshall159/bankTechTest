@@ -1,4 +1,5 @@
 import Account from './account';
+import Print from './printStatement';
 
 var account;
 
