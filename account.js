@@ -13,6 +13,7 @@ class Account {
             throw new Error('Deposit must be higher than 0');
         }
         this._balance += amount;
+        this.transaction(amount);
     }
 
     withdraw(amount) {
@@ -20,9 +21,10 @@ class Account {
             throw new Error('Cannot withdraw more than account balance');
         }
         this._balance -= amount;
+        this.transaction(0, amount);
     }
 
-    transaction(credit = '', debit = '') {
+    transaction(credit = 0, debit = 0) {
         let individualTransaction = {
             date: new Date().toLocaleDateString(),
             credit,
@@ -31,7 +33,7 @@ class Account {
         }
         this._transactions.push(individualTransaction);
     }
-    
+
     get transactions() {
         return this._transactions;
     }

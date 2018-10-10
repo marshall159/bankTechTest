@@ -55,10 +55,37 @@ describe('#transactions', () => {
         expect(account.transactions).toEqual(
             [{
                 date: '31/10/2018', 
-                credit: '', 
-                debit: '', 
+                credit: 0, 
+                debit: 0, 
                 balance: 0
             }]
+        );
+    });
+
+    test('check several transactions', () => {
+        account.deposit(10);
+        account.withdraw(5);
+        expect(account.transactions).toEqual(
+            [
+                {
+                    date: '31/10/2018', 
+                    credit: 0, 
+                    debit: 0, 
+                    balance: 0
+                },
+                {
+                    date: '31/10/2018', 
+                    credit: 10, 
+                    debit: 0, 
+                    balance: 10
+                },
+                {
+                    date: '31/10/2018', 
+                    credit: 0, 
+                    debit: 5, 
+                    balance: 5
+                },
+            ]
         );
     });
 });
