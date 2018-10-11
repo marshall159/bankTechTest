@@ -46,49 +46,61 @@ describe('#wihdraw', () => {
     });
 });
 
-describe('#transactions', () => {
+describe('date dependent', () => {
     beforeAll(() => {
         Date.prototype.toLocaleDateString = jest.fn();
         Date.prototype.toLocaleDateString
             .mockReturnValue("31/10/2018");
     })
-    test('new bank account transactions', () => {
-        expect(account.transactions).toEqual(
-            [{
-                date: '31/10/2018', 
-                credit: 0, 
-                debit: 0, 
-                balance: 0
-            }]
-        );
-    });
 
-    test('check several transactions', () => {
-        account.deposit(10);
-        account.withdraw(5);
-        expect(account.transactions).toEqual(
-            [
-                {
+    describe('#transactions', () => {
+        test('new bank account transactions', () => {
+            expect(account.transactions).toEqual(
+                [{
                     date: '31/10/2018', 
                     credit: 0, 
                     debit: 0, 
                     balance: 0
-                },
-                {
-                    date: '31/10/2018', 
-                    credit: 10, 
-                    debit: 0, 
-                    balance: 10
-                },
-                {
-                    date: '31/10/2018', 
-                    credit: 0, 
-                    debit: 5, 
-                    balance: 5
-                },
-            ]
-        );
+                }]
+            );
+        });
+    
+        test('check several transactions', () => {
+            account.deposit(10);
+            account.withdraw(5);
+            expect(account.transactions).toEqual(
+                [
+                    {
+                        date: '31/10/2018', 
+                        credit: 0, 
+                        debit: 0, 
+                        balance: 0
+                    },
+                    {
+                        date: '31/10/2018', 
+                        credit: 10, 
+                        debit: 0, 
+                        balance: 10
+                    },
+                    {
+                        date: '31/10/2018', 
+                        credit: 0, 
+                        debit: 5, 
+                        balance: 5
+                    },
+                ]
+            );
+        });
     });
+
+    describe('#statement', () => {
+        test('new bank account', () => {
+            let expectedOutput = "date || credit || debit || balance\n31/10/2018 ||  ||  || 0"
+            expect(account.statement).toBe(expectedOutput);
+        })
+    });
+
+
 });
 
 

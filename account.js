@@ -1,6 +1,9 @@
+import Printer from './printStatement';
+
 class Account {
     constructor(balance = 0) {
         this._balance = balance;
+        this._printer = new Printer();
         this._transactions = [];
         this.transaction();
     }
@@ -36,6 +39,10 @@ class Account {
 
     get transactions() {
         return this._transactions;
+    }
+
+    get statement() {
+        return this._printer.statement(this._transactions);
     }
 }
 
