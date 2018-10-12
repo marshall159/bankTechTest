@@ -2,9 +2,9 @@
 const Printer = require('./printStatement.js')
 
 module.exports = class Account {
-    constructor(balance = 0) {
+    constructor(balance = 0, printer = new Printer()) {
         this._balance = balance;
-        this._printer = new Printer();
+        this._printer = printer;
         this._transactions = [];
         this.transaction();
     }
