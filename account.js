@@ -1,6 +1,7 @@
-import Printer from './printStatement';
+// import Printer from './printStatement';
+const Printer = require('./printStatement.js')
 
-class Account {
+module.exports = class Account {
     constructor(balance = 0) {
         this._balance = balance;
         this._printer = new Printer();
@@ -46,4 +47,5 @@ class Account {
     }
 }
 
-export default Account;
+
+// export default Account;

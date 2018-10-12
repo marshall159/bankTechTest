@@ -1,5 +1,7 @@
-import Account from './account';
-import Print from './printStatement';
+// import Account from './account';
+// import Print from './printStatement';
+const Account = require('./account.js');
+const Print = require('./printStatement.js');
 
 var account;
 
